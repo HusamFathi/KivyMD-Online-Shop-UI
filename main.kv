@@ -1,0 +1,238 @@
+
+
+MDScreen:
+    MDBoxLayout:
+        orientation:"vertical"
+        MDBoxLayout:
+            orientation:"vertical"
+            adaptive_height:True
+            MDBoxLayout:
+                size_hint_y:None
+                height:dp(65)
+                AnchorLayout:
+                    anchor_y:'top'
+                    anchor_x:'left'
+                    MDIconButton:
+                        icon:"arrow-left"
+                AnchorLayout:
+                    anchor_y:'top'
+                    anchor_x:'right'
+                    MDBoxLayout:
+                        adaptive_size:True
+                        MDIconButton:
+                            icon:"magnify"
+                        MDIconButton:
+                            icon:"cart"
+            MDBoxLayout:
+                size_hint_y:None
+                height:dp(55)
+                spacing:dp(12)
+                padding:dp(12)
+                TabCard:
+                    icon:'shoe-sneaker'
+                    text:"shoes"
+                    md_bg_color:app.theme_cls.primary_color
+                TabCard:
+                    icon:'tshirt-crew'
+                    text:"T shirt"
+                TabCard:
+                    icon:'redhat'
+                    text:"hat"
+        MDBoxLayout:
+            ScrollView:
+                MDGridLayout:
+                    cols:2
+                    padding:dp(20)
+                    spacing:dp(20)
+                    adaptive_height:True
+                    ElementCard:
+                        image:'images/blue.png'
+                        price:'120 $'
+                        rate:" 4.5/5"
+                    ElementCard:
+                        image:'images/1.png'
+                        price:'180 $'
+                        rate:" 5/5"
+                    ElementCard:
+                        image:'images/red.png'
+                        price:'80 $'
+                        rate:" 4.5/5"
+                    ElementCard:
+                        image:'images/2.png'
+                        price:'150 $'
+                        rate:" 3.0/5"
+                    ElementCard:
+                        image:'images/yellow.png'
+                        price:'100 $'
+                        rate:" 4.0/5"
+                    ElementCard:
+                        image:'images/3.png'
+                        price:'200 $'
+                        rate:" 3.0/5"
+        # bottom navigation appbar
+        MDBoxLayout:
+            size_hint_y:None
+            md_bg_color:.9,.9,.9,1
+            height:dp(60)
+            padding:[0,0,0,15]
+            MDBoxLayout:
+                orientation:'vertical'
+                MDIconButton:
+                    pos_hint:{'center_x':.5,'center_y':.5}
+                    icon:'home'
+                    theme_text_color:'Custom'
+                    text_color:app.theme_cls.primary_color
+                MDLabel:
+                    text:'Home'
+                    valign:"center"
+                    theme_text_color:'Custom'
+                    text_color:app.theme_cls.primary_color
+                    halign:"center"
+            MDBoxLayout:
+                orientation:'vertical'
+                MDIconButton:
+                    pos_hint:{'center_x':.5,'center_y':.5}
+                    icon:'bell'
+                MDLabel:
+                    text:'Notification'
+                    valign:"center"
+                    halign:"center"
+            MDBoxLayout:
+                orientation:'vertical'
+                MDIconButton:
+                    pos_hint:{'center_x':.5,'center_y':.5}
+                    icon:'cards-heart'
+                MDLabel:
+                    text:'Favorite'
+                    valign:"center"
+                    halign:"center"
+            MDBoxLayout:
+                orientation:'vertical'
+                MDIconButton:
+                    pos_hint:{'center_x':.5,'center_y':.5}
+                    icon:'account'
+                MDLabel:
+                    text:'Profile'
+                    valign:"center"
+                    halign:"center"
+
+<ContentCustomSheet@MDBoxLayout>:
+    orientation: "vertical"
+    size_hint_y: None
+    height:dp(750)
+    image:''
+    rate:""
+    price:""
+    padding:dp(12)
+    spacing:dp(6)
+    RelativeLayout:
+        ElementCard:
+            pos_hint:{"x":.05,"y":.5}
+            image:root.image
+            rate:root.rate
+            price:root.price
+
+    MDBoxLayout:
+        spacing:dp(5)
+        Check:
+            selected_color:1,0,0,1
+            active:True
+            unselected_color:1,0,0,1
+            pos_hint: {'center_x': .5, 'center_y': .5}
+        Check:
+            selected_color:0,0,1,1
+            unselected_color:0,0,1,1
+            pos_hint: {'center_x': .5, 'center_y': .5}
+
+        Check:
+            selected_color:0,1,0,1
+            unselected_color:0,1,0,1
+            pos_hint: {'center_x': .5, 'center_y': .5}
+        Check:
+            selected_color:1,1,0,1
+            unselected_color:1,1,0,1
+            pos_hint: {'center_x': .5, 'center_y': .5}
+    MDLabel:
+        text:"this the latest version of our Brand with modern design."
+        adaptive_height:True
+    MDBoxLayout:
+        adaptive_width:True
+        MDIconButton:
+            icon:'plus'
+            pos_hint:{"center_x":.5,"center_y":.5}
+        MDLabel:
+            text:"1"
+            halign:'center'
+            valign:'center'
+        MDIconButton:
+            icon:"minus"
+            pos_hint:{"center_x":.5,"center_y":.5}
+
+    MDBoxLayout:
+        spacing:dp(8)
+        MDRoundFlatIconButton:
+            icon:"cart"
+            text:"Add to cart"
+            size_hint_x:1
+        MDRoundFlatIconButton:
+            icon:"cards-heart"
+            text:"Add to Favorite"
+            size_hint_x:1
+    MDRaisedButton:
+        size_hint_x:1
+        text:"Buy now"
+<Check@MDCheckbox>:
+    group: 'group'
+    radio_icon_normal:"checkbox-blank-circle"
+    size_hint: None, None
+    size: dp(48), dp(48)
+
+<ElementCard@MDCard>:
+    image:''
+    rate:''
+    price:""
+    orientation:'vertical'
+    on_release:app.show_custom_bottom_sheet(root.image,root.price,root.rate)
+    size_hint_x:.5
+    elevation:15
+    size_hint_y:None
+    md_bg_color:app.theme_cls.primary_color
+    height:dp(220)
+    padding:dp(25)
+    spacing:dp(15)
+    radius:[25]
+    MDBoxLayout:
+        height:dp(120)
+        size_hint_y:None
+        Image:
+            source:root.image
+
+    MDBoxLayout:
+        size_hint_y:None
+        height:dp(25)
+        MDIcon:
+            icon:'star'
+            theme_text_color:'Custom'
+            text_color:1,1,0,1
+            halign:"center"
+            size_hint_x:.25
+            # width:dp(30)
+        MDLabel:
+            text:root.rate
+
+    MDLabel:
+        text:root.price
+        font_style:'H5'
+
+
+<TabCard@MDCard>:
+    icon:""
+    text:""
+    size_hint_y:None
+    radius:dp(15)
+    height:dp(55)
+    MDIconButton:
+        icon:root.icon
+    MDLabel:
+        text:root.text
+
