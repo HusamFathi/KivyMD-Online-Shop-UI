@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = KivyMD Online Shop
+title = NA SHOP'S 
 
 # (str) Package name
-package.name = KivyMDOnlineShop
+package.name = NASHOP
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.KivyMDOnlineShop
@@ -319,7 +319,7 @@ warn_on_root = 1
 #    and extend the excluded directories to remove the HD content.
 #
 #[app@demo]
-#title = My Application (demo)
+#title = NA SHOP'S  (demo)
 #
 #[app:source.exclude_patterns@demo]
 #images/hd/*
